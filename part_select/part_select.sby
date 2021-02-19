@@ -1,0 +1,15 @@
+[options]
+mode bmc
+depth 1
+
+[engines]
+smtbmc 
+
+[script]
+read -noverific
+read -formal part_select.sv
+prep -top part_select
+
+[files]
+part_select.sv
+init.bin

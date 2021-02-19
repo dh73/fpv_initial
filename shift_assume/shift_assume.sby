@@ -1,0 +1,14 @@
+[options]
+mode bmc
+depth 1
+
+[engines]
+smtbmc
+
+[script]
+read -noverific
+read -formal shift_assume.sv
+prep -top shift_assume
+
+[files]
+shift_assume.sv
