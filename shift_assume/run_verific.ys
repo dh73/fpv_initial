@@ -1,0 +1,3 @@
+read -sv shift_assume.sv; prep -top shift_assume;
+select -assert-count 1 t:$assert
+select -assert-count 2 t:$assume

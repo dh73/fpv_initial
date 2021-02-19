@@ -7,8 +7,7 @@ module ex1
    
    initial begin
       // Assertion evaluated only once: reset is high during first two cycles
-      assert property (@(posedge clk) disable iff (!irstn) 
-		       oreset and nexttime oreset);
+      assert property (@(posedge clk) disable iff (!irstn) oreset[*2]);
    end
    always_ff @(posedge clk) begin
       if (!irstn) begin 
