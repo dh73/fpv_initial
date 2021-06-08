@@ -1,0 +1,16 @@
+[options]
+mode prove
+
+[engines]
+smtbmc boolector
+
+[script]
+read -sv fifo.sv
+read -sv fifo_spec.sv
+prep -flatten -top fifo
+cutpoint fifo_spec/D
+cutpoint fifo/wr_ptr_ps
+
+[files]
+fifo.sv
+fifo_spec.sv

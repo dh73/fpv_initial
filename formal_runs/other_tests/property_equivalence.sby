@@ -1,0 +1,13 @@
+[options]
+mode prove
+multiclock on
+
+[engines]
+smtbmc boolector
+
+[script]
+read -sv property_equivalence.sv
+prep -top property_equivalence
+
+[files]
+property_equivalence.sv

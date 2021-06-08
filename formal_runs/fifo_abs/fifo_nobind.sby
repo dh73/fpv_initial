@@ -1,0 +1,14 @@
+[options]
+mode prove
+
+[engines]
+smtbmc boolector
+
+[script]
+read -sv fifo_nobind.sv
+prep -top fifo_nobind
+cutpoint fifo_nobind/D
+cutpoint fifo_nobind/wr_ptr_ps
+
+[files]
+fifo_nobind.sv

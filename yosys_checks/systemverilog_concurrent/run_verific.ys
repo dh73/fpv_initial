@@ -1,0 +1,16 @@
+read -sv ex0.sv; prep -top ex0;
+select -assert-count 1 t:$assert
+select -assert-count 1 t:$initstate
+sat -tempinduct -set-assumes -prove-asserts -show-ports
+
+design -reset
+read -sv ex1.sv; prep -top ex1;
+select -assert-count 1 t:$assert
+select -assert-count 1 t:$initstate
+sat -tempinduct -set-assumes -prove-asserts -show-ports
+
+design -reset
+read -sv ex2.sv; prep -top ex2;
+select -assert-count 8 t:$assert
+select -assert-count 1 t:$initstate
+sat -tempinduct -set-assumes -prove-asserts -show-ports

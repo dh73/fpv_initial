@@ -1,0 +1,12 @@
+[options]
+mode prove
+
+[engines]
+smtbmc boolector
+
+[script]
+read -sv initial_test.sv
+prep -top initial_test
+
+[files]
+initial_test.sv

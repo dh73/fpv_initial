@@ -1,0 +1,5 @@
+read -noverific
+read -formal fmdemo.sv
+prep -top fmdemo
+sat -tempinduct -set-assumes -prove-asserts -show-ports
+

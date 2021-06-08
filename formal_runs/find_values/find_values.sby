@@ -1,0 +1,12 @@
+[options]
+mode cover
+
+[engines]
+smtbmc boolector
+
+[script]
+read -sv find_values.sv
+prep -top find_values
+
+[files]
+find_values.sv

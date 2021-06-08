@@ -1,0 +1,12 @@
+[options]
+mode prove
+
+[engines]
+smtbmc
+
+[script]
+read -sv fmdemo.sv
+prep -top fmdemo
+
+[files]
+fmdemo.sv

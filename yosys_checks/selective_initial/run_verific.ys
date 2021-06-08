@@ -1,13 +1,19 @@
 read -sv test.v; prep -top test_1;
 select -assert-count 1 t:$assert
 select -assert-count 1 t:$assume
+select -assert-count 1 t:$initstate
+sat -tempinduct -set-assumes -prove-asserts -show-ports
 
 design -reset
 read -noverific; read -sv test.v; prep -top test_2;
 select -assert-count 1 t:$assert
 select -assert-count 2 t:$assume
+select -assert-count 1 t:$initstate
+sat -tempinduct -set-assumes -prove-asserts -show-ports
 
 design -reset
 read -noverific; read -sv test.v; prep -top test_3;
 select -assert-count 1 t:$assert
 select -assert-count 2 t:$assume
+select -assert-count 1 t:$initstate
+sat -tempinduct -set-assumes -prove-asserts -show-ports

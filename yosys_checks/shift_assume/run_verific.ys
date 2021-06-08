@@ -1,3 +1,5 @@
 read -sv shift_assume.sv; prep -top shift_assume;
 select -assert-count 1 t:$assert
 select -assert-count 2 t:$assume
+select -assert-count 1 t:$initstate
+sat -tempinduct -set-assumes -prove-asserts -show-ports

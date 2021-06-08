@@ -6,8 +6,9 @@ module ex1
    logic [1:0] ft;
    
    initial begin
+      ac0: assume property(@(posedge clk) ft == 2'b11);
       // Assertion evaluated only once: reset is high during first two cycles
-      assert property (@(posedge clk) disable iff (!irstn) oreset[*2]);
+      ap0: assert property (@(posedge clk) oreset);
    end
    always_ff @(posedge clk) begin
       if (!irstn) begin 

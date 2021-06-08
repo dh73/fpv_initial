@@ -6,8 +6,9 @@ module ex0
    logic      ft;
    
    initial begin
+      ac0: assume property(@(posedge clk) !rstn);
       // Assertion evaluated only once: ready is initially low
-      assert property (@(posedge clk) disable iff (!rstn) !ready);
+      ap0: assert property (@(posedge clk) !ready);
    end
    always_ff @(posedge clk) begin
       if (!rstn) begin 

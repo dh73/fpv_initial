@@ -1,3 +1,4 @@
 read -sv part_select.sv; prep -top part_select;
 select -assert-count 2 t:$assert
 select -assert-count 2 t:$assume
+select -assert-count 1 t:$initstate
