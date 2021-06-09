@@ -10,9 +10,10 @@
 `ifdef _SV_SUPPORT_
       a0: assume property(@(posedge clk) &tmp);
       a1: assert property(@(posedge clk) rstn_dly);
-`endif
+`else
       a0: assume (tmp == 2'b11);
       a1: assert (rstn_dly);
+`endif
    end
    
    always_ff @(posedge clk) begin
