@@ -15,16 +15,16 @@ As far as I know, initial procedures for FPV are used in:
 ### Formal (SBY) tests
 | Test name | Result | Reason |
 | --------- | ------ | ------ |
-| FIFO (bind) | FAIL | `$initstate` cells not created if assumptions are created in different hierarchy from where the signals are defined (bind) |
-| FIFO (no bind) | ERROR | Segfault possibly due `foreach` construct creating assumptions |
+| FIFO (bind) | PASS | `$initstate` cells created |
+| FIFO (no bind) | PASS | Segfault fixed |
 | Find values |  PASS | Quite easy test |
 | FMDEMO | FAIL | Claire's test, expected to fail |
-| Initial test | ERROR | PREUNSAT error, IMO this should work just fine |
+| Initial test | FAIL | Initial values not applied, `tmp` is an internal signal not a primary input. |
 | Property equivalence | FAIL | Initial values pass not supported for concurrent assertions |
 | Part-select | PASS | Expected pass |
 | Shift assume | PASS | Expected pass |
 
-* Total: 3 passing, 3 failing, 2 errors that needs further investigation, Of 8 tests.
+* Total: 5 passing, 3 failing, 0 errors that needs further investigation, Of 8 tests.
 
 ---
 
