@@ -1,4 +1,5 @@
 `default_nettype none
+`define _SV_SUPPORT_
   module initial_test(input wire clk,
 		      output logic rstn_dly);
 
@@ -8,7 +9,7 @@
    bit [1:0] tmp;
    initial begin
 `ifdef _SV_SUPPORT_
-      a0: assume property(@(posedge clk) &tmp);
+      a0: assume property(@(posedge clk) tmp == 2'b11);
       a1: assert property(@(posedge clk) rstn_dly);
 `else
       a0: assume (tmp == 2'b11);

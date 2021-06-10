@@ -34,7 +34,7 @@ As far as I know, initial procedures for FPV are used in:
 | --------- | ------ | ------ |
 | Part select | Verific/Yosys passing | Expected pass |
 | Selective initial | Verific/yosys passing | Expected pass |
-| Shift assume | Yosys pass, verific fail | Initial values assigned by a function, the pass ignores this and left the inputs as free at first cycle |
+| Shift assume | Yosys pass, verific pass | Calling the function not from within the initial block |
 | Concurrent test ex0 | Verific fail | Initial values pass not supported for concurrent assertions |
 | Concurrent test ex1 | Verific fail | Initial values pass not supported for concurrent assertions |
 | Concurrent test ex2 | Verific fail | Initial values pass not supported for concurrent assertions |

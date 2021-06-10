@@ -5,26 +5,27 @@ module shift_assume
 
    function [15:0] apply_mask;
       input logic [15:0] tmpx;
-      begin 
-	 apply_mask = tmpx >> 1;
+      begin
+         apply_mask = tmpx >> 1;
       end
    endfunction // apply_mask
+
+   logic [15:0] tmpa, tmpb;
+   always_comb tmpa = apply_mask(16'hfff0);
+   always_comb tmpb = apply_mask(16'h00e4);
    
    initial begin
-      logic [15:0] tmpa, tmpb;
-      tmpa = apply_mask(16'hfff0);
-      tmpb = apply_mask(16'h00e4);
-      assume (a == tmpa);
-      assume (b == tmpb);
-      assert (out == 32'h38fc70);
+      assume(a == tmpa);
+      assume(b == tmpb);
+      assert(out == 32'h38fc70);
    end
 
-   
    always_comb begin
       out = a * b;
-      //assert (out == 32'h38fc70);
    end
-   
+
 endmodule // shift_assume
+
+
 
 
